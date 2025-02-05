@@ -18,7 +18,7 @@ if __name__ == "__main__":
         print(font)
     """
     ft = Font(family='Nanum Gothic', size=12, weight='bold', slant='italic', underline=False)
-    btn = Button(root, text="Button", width=30, height=10, padx=3, pady=3, 
+    btn = Button(root, text="Button", width=50, height=20, padx=3, pady=3, 
                  background='yellow', foreground='black', 
                  font=ft, anchor='w', 
                  relief='raised', cursor='hand2')
