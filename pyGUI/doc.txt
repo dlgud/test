@@ -1,0 +1,32 @@
+https://doc.qt.io/qtforpython/
+
+event handling
+- override envent handlers of QWidget
+- signal(event) - slot(member function): m signlas - n slots
+	QtCore.Signal
+	Signal()
+	connect(receiver)
+	disconnect(receiver)
+	emit(*args): send signal(s)
+
+ex. 1. signal - event_handler
+	self.button = QtWidgets.QPushButton("clear text")
+	self.text = QtWidgets.QLabel("hello world")
+	self.button.clicked.connect(self.text.clear)	 # mouse click or emit()
+	
+ex. 2. signal-slot(user defined)
+	self.button.clicked.connect(self.slot_clicked)
+	...
+	@QtCore.Slot()
+	def slot_clicked(self):
+		self.text.setText("Button Clicked")
+
+ex. 3. User defined
+	class MySignal(QtCore.QObject):
+		exitSignal = QtCore.Signal()
+
+	... 
+	self.mysignal = MySignal()
+	self.mysignal.exitSignal.connect(self.close)
+	self.mysignal.setSignal.emit()	# call slot()
+
