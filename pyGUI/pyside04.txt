@@ -1,0 +1,45 @@
+import sys
+from PySide6 import QtCore, QtWidgets, QtGui
+import ui_MyWindow, ui_MyDialog
+
+
+class MyDialog(QtWidgets.QDialog):
+	def __init__(self):
+		super().__init__()
+
+		self.ui = ui_MyDialog.Ui_MyDialog()
+		self.ui.setupUi(self)
+
+	def dateChanged(self):
+		date = self.ui.calendarWidget.selectedDate()
+		...
+
+	def okClicked(self):
+		self.close()
+
+
+class MyWindow(QtWidgets.QMainWindow):
+	def __init__(self):
+		super().__init__()
+
+
+		self.ui = ui_MyWindow.Ui_MyWindow()
+		self.ui.setupUi(self)
+
+		self.ui.action_New.triggered.connect(self.newAction)
+		self.ui.action_Open.triggered.connect(self.openAction)
+		self.ui.action_Exit.triggered.connect(self.close)
+		self.ui.action_Date.triggered.connect(self.dateAction)
+
+	def dateAction(self):
+		self.dialog = MyDialog()
+		self.dialog.show()
+
+	def newAction(self):
+		...
+
+	def openAction(self):
+		...
+
+if __name__ == "__main__":
+	...
