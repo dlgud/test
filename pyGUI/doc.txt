@@ -24,9 +24,12 @@ ex. 2. signal-slot(user defined)
 ex. 3. User defined
 	class MySignal(QtCore.QObject):
 		exitSignal = QtCore.Signal()
-
 	... 
 	self.mysignal = MySignal()
 	self.mysignal.exitSignal.connect(self.close)
 	self.mysignal.setSignal.emit()	# call slot()
 
+at Qt Designer
+- 4 edit modes : widget, signal_slot, buddy, tab-order edit mode
+- outputs: MyForm(Form object name), MyForm.ui, ui_MyForm.py Ui_MyForm(class name)
+	
